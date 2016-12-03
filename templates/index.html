@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github Navigator</title>
+</head>
+<body>
+<h1>Github Navigator</h1>
+<form method="get" action="{% url 'search_github' %}">
+    <input type="text" name="search_term" value=""/>
+    <input type="submit" value="Github Search" onclick="return onSubmit(this.value)"/>
+</form>
+<script>
+    function onSubmit(value){
+        if(value.length > 0)
+                return true;
+        return false;
+    }
+</script>
+</body>
+</html>

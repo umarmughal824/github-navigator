@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Github Navigator</title>
+</head>
+<body>
+<h1>{{ search_term }}</h1>
+
+{% for repo in repos %}
+    {% if forloop.counter < 6 %}
+        <h2>{{ forloop.counter }}. {{ repo.name }}</h2>
+        <h3> Created {{ repo.created_at }}</h3>
+        <a href="{{ repo.owner.url }}"><img src="{{ repo.owner.avatar_url }}" alt="avatar" height="42" width="42"/></a>
+        {{ repo.owner.login }}
+        <h3>LastCommit</h3>
+        {{ repo.last_commit.sha }} {{ repo.last_commit.message }}  {{ repo.last_commit.author }}
+        <hr/>
+    {% endif %}
+{% endfor %}
+
+</body>
+</html>
